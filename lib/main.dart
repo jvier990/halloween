@@ -12,13 +12,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-     theme: AppTheme(selectedColor: 4).getTheme(),
+      theme: AppTheme(selectedColor: 4).getTheme(),
       home: HomeScreen(),
     );
   }
 }
-
-
-//AppTheme(selectedColor: 4).getTheme(),

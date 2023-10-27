@@ -25,14 +25,18 @@ class _HomeView extends StatelessWidget {
 
   Widget menuList(BuildContext context, int index) {
     final menuItem = appMenuItems[index];
-    return Row(
-      children: [
-        Icon(
-          menuItem.icon,
-          color: Colors.deepPurple,
-        ),
-        Text(menuItem.title)
-      ],
-    );
+    return Container(
+        padding: const EdgeInsets.all(2),
+        child: Wrap(children: [
+          ListTile(
+            leading:Icon(menuItem.icon, color: Colors.white,) ,
+            hoverColor: Colors.deepOrangeAccent,
+            splashColor: Color.fromARGB(255, 255, 0, 0),
+            tileColor: Colors.orange,
+            title: Text(menuItem.title),
+            titleTextStyle: const TextStyle(color: Colors.white),
+            onTap: () {},
+          ),
+        ]));
   }
 }

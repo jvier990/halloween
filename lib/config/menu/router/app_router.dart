@@ -5,6 +5,7 @@ import 'package:halloween/screens/cards/card_screen.dart';
 import 'package:halloween/screens/home/home_screen.dart';
 
 
+
 final GoRouter appRouter = GoRouter(
   routes: <RouteBase>[
     GoRoute(

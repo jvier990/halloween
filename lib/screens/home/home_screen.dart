@@ -4,6 +4,7 @@ import 'package:halloween/config/menu/menu_items.dart';
 
 
 class HomeScreen extends StatelessWidget {
+  static const String screenName = 'home_screen';
   const HomeScreen({super.key});
 
   @override
@@ -13,16 +14,11 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Menu de Materia 3'),
       ),
       body: ListView.builder(
-          itemCount: appMenuItems.length, itemBuilder: menuList2),
+          itemCount: appMenuItems.length, itemBuilder: menuList),
     );
   }
 
   Widget menuList(BuildContext context, int index) {
-    final menuItem = appMenuItems[index];
-    return Text(menuItem.title);
-  }
-
-  Widget menuList2(BuildContext context, int index) {
     final menuItem = appMenuItems[index];
     return _CustomListTitle(menuItem: menuItem);
   }
@@ -46,7 +42,8 @@ class _CustomListTitle extends StatelessWidget {
       subtitle: Text(menuItem.subTitle),
       onTap: () {
         //context.go(menuItem.link);
-        context.push(menuItem.link);
+        //context.push(menuItem.link);
+        context.pushNamed(menuItem.screenName);
       },
     );
   }

@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:halloween/config/menu/router/app_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:halloween/config/config/router/app_router.dart';
+import 'package:halloween/config/config/theme/app_theme.dart';
+import 'package:halloween/presentation/widgets/providers/theme_provider.dart';
 
-import 'package:halloween/theme/app_theme/app_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MainApp()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MainApp extends ConsumerWidget {
+  const MainApp({super.key});
 
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final AppTheme appTheme = ref.watch(themeNotifierProvider);
     return MaterialApp.router(
+      title: 'Flutter Widgets',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme(selectedColor: 4).getTheme(),
-      //home: HomeScreen(),
-       routerConfig: appRouter,
+      theme: appTheme.getTheme(),
+      routerConfig: appRouter,
     );
   }
 }
